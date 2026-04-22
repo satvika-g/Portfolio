@@ -18,11 +18,12 @@ type Props = {
   height?: number;
 };
 
-const SPRING = 0.05;
-const FRICTION = 0.82;
+const SPRING = 0.07;
+const FRICTION = 0.88;
 const MOUSE_RADIUS = 110;
-const SAMPLE_STEP = 2;
-const MAX_PARTICLES = 3500;
+const REPULSION = 6.5;
+const SAMPLE_STEP = 2.5;
+const MAX_PARTICLES = 2500;
 
 export function ParticleTitle({
   text = "Hi, my name is Satvika",
@@ -67,7 +68,7 @@ export function ParticleTitle({
       ctx.clearRect(0, 0, width, cssHeight);
 
       const isSmall = width < 640;
-      const fontSize = isSmall ? 64 : width < 900 ? 92 : 120;
+      const fontSize = isSmall ? 56 : width < 900 ? 78 : 95;
 
       ctx.fillStyle = "#ffffff";
       ctx.textAlign = "center";
@@ -120,8 +121,8 @@ export function ParticleTitle({
               baseY,
               vx: 0,
               vy: 0,
-              size: 2 + Math.random() * 1.2,
-              baseOpacity: 0.85 + Math.random() * 0.15,
+              size: 1.6 + Math.random() * 0.6,
+              baseOpacity: 0.75 + Math.random() * 0.1,
               opacity: 0,
               index: idx++,
             });
@@ -187,12 +188,6 @@ export function ParticleTitle({
 
       const mouse = mouseRef.current;
       const particles = particlesRef.current;
-      const cx = width / 2;
-      const cy = cssHeight / 2;
-      const maxDistFromCenter = Math.sqrt(cx * cx + cy * cy);
-
-      ctx.shadowBlur = 14;
-      ctx.shadowColor = "rgba(255, 255, 255, 0.8)";
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -201,13 +196,11 @@ export function ParticleTitle({
         const dy = p.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        let glow = 0;
         if (mouse.active && dist < MOUSE_RADIUS) {
           const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
           const angle = Math.atan2(dy, dx);
-          p.vx += Math.cos(angle) * force * 10;
-          p.vy += Math.sin(angle) * force * 10;
-          glow = force;
+          p.vx += Math.cos(angle) * force * REPULSION;
+          p.vy += Math.sin(angle) * force * REPULSION;
         }
 
         p.vx += (p.baseX - p.x) * SPRING;
@@ -224,37 +217,12 @@ export function ParticleTitle({
           p.opacity = Math.min(p.baseOpacity, p.opacity + 0.02);
         }
 
-        const distFromCenter = Math.sqrt(
-          (p.baseX - cx) * (p.baseX - cx) +
-            (p.baseY - cy) * (p.baseY - cy),
-        );
-        const centerBoost = 1 - (distFromCenter / maxDistFromCenter) * 0.25;
-
-        const renderSize = p.size + glow * 1.4;
-        const renderOpacity = Math.min(
-          1,
-          p.opacity * centerBoost + glow * 0.3,
-        );
-
-        const grad = ctx.createRadialGradient(
-          p.x,
-          p.y,
-          0,
-          p.x,
-          p.y,
-          renderSize * 2,
-        );
-        grad.addColorStop(0, `rgba(255, 255, 255, ${renderOpacity})`);
-        grad.addColorStop(0.5, `rgba(255, 255, 255, ${renderOpacity * 0.6})`);
-        grad.addColorStop(1, "rgba(255, 255, 255, 0)");
-
         ctx.beginPath();
-        ctx.arc(p.x, p.y, renderSize * 2, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
         ctx.fill();
       }
 
-      ctx.shadowBlur = 0;
       rafRef.current = requestAnimationFrame(loop);
     };
     rafRef.current = requestAnimationFrame(loop);
