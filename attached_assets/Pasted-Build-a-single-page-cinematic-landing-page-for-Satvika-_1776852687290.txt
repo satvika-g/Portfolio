@@ -1,0 +1,168 @@
+Build a single-page cinematic landing page for "Satvika," an AI & ML portfolio. Stack: React + Vite + TypeScript + Tailwind CSS v4, Framer Motion, Lucide React. Pure black background. Surreal, cinematic, pastel-futurist aesthetic. No videos. No iframes. All section backgrounds use the images I am attaching to this message.
+
+IMAGES I AM SENDING WITH THIS PROMPT (attach them alongside this text):
+• Image 1 — Hero background: flower meadow with tulips, wide sky, warm golden hour. Save as /public/hero-bg.jpg.
+• Image 2 — Intro section background: abstract or nature texture. Save as /public/intro-bg.jpg.
+• Image 3 — Features section background: abstract/dark nature texture. Save as /public/features-bg.jpg.
+
+Use each image exactly where specified below. Do not generate placeholder images or fetch stock images.
+
+DEPENDENCIES
+
+framer-motion
+lucide-react
+
+Google Fonts in index.css:
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Barlow:wght@300;400;500;600&display=swap');
+
+App.tsx
+
+import Navbar from './components/Navbar';
+import PageLoader from './components/PageLoader';
+import HeroSection from './components/HeroSection';
+import IntroSection from './components/IntroSection';
+import FeaturesSection from './components/FeaturesSection';
+import CTASection from './components/CTASection';
+import Footer from './components/Footer';
+
+export default function App() {
+return (
+<>
+
+
+
+
+
+
+
+
+</>
+);
+}
+
+Navbar.tsx
+
+Fixed pill navbar at top. liquid-glass pill, slides in from above at 0.9s delay.
+
+Logo = "Satvika" in Instrument Serif italic.
+
+Links:
+Projects, Skills, Approach, Contact
+
+Right button:
+White "Resume" button
+
+HeroSection.tsx
+
+Replace heading text with:
+"Building intelligent systems / that solve real problems"
+
+Replace subtext with:
+"AI & ML student crafting data-driven solutions, predictive systems, and full-stack applications."
+
+Buttons:
+• "View Projects"
+• "View GitHub"
+
+IntroSection.tsx
+
+Badge:
+"About Me"
+
+Heading:
+"Turning data into / meaningful systems."
+
+Text:
+"I work on machine learning models, data-driven applications, and full-stack systems that solve real-world problems. From prediction systems to anomaly detection, I focus on building things that actually work outside the classroom."
+
+Partner row:
+Python · Machine Learning · Data Science · Web Development · AI · SQL
+
+HowItWorksSection.tsx
+
+Badge:
+"Approach"
+
+Heading:
+"How I build / intelligent systems"
+
+Text:
+"From understanding the problem to deploying a working solution, I follow a structured approach focused on data, experimentation, and iteration."
+
+FeaturesSection.tsx
+
+Badge:
+"Projects"
+
+Heading:
+"Selected work / and systems I've built"
+
+Cards:
+
+
+
+
+Title: "COVID-19 Prediction System"
+Description:
+"Time-series forecasting using Linear Regression, SVR, and Bayesian Ridge models with data visualization for trend analysis."
+
+
+
+
+Title: "Stock Price Prediction using Sentiment"
+Description:
+"NLP-based sentiment analysis using VADER and spaCy combined with machine learning models like SVM and Random Forest."
+
+
+
+
+Title: "Fraud Shipment Detection"
+Description:
+"Anomaly detection system using Isolation Forest with feature engineering and Flask-based deployment."
+
+
+
+
+Title: "Protein Family Classification"
+Description:
+"Deep learning model using CNN and RNN architectures to classify protein sequences into functional families."
+
+CTASection.tsx
+
+Badge:
+"Let's Connect"
+
+Heading:
+"Let’s build something / meaningful."
+
+Text:
+"Open to internships, collaborations, and opportunities in AI, ML, and software development."
+
+Buttons:
+• "Contact Me"
+• "View Resume"
+
+Footer.tsx
+
+Brand name:
+"Satvika"
+
+Tagline:
+"AI & ML student building real-world systems."
+
+Copyright:
+"© 2025 Satvika. All rights reserved."
+
+ANIMATION SYSTEM
+
+All animations, transitions, WebGL effects, particle systems, and layout behavior MUST remain unchanged from the original implementation.
+
+RESULT
+
+The page should feel:
+• Cinematic and immersive
+• Like a real living scene (animated tulips/sky, floating particles)
+• High-end portfolio quality
+• Black and minimal outside the hero
+• Smooth, staggered fade-up animations throughout

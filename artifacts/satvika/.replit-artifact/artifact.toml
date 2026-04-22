@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Satvika"
+version = "1.0.0"
+id = "artifacts/satvika"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20599
+
+[services.development]
+run = "pnpm --filter @workspace/satvika run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/satvika", "run", "build" ]
+publicDir = "artifacts/satvika/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20599"
+BASE_PATH = "/"
