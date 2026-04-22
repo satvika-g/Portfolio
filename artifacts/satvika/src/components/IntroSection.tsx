@@ -4,10 +4,14 @@ export function IntroSection() {
   return (
     <section id="about" className="relative w-full py-32 bg-black overflow-hidden bg-noise">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{ backgroundImage: "url('/intro-bg.jpg')" }}
+        className="absolute inset-0 bg-cover bg-center opacity-85"
+        style={{
+          backgroundImage: "url('/intro-bg.jpg')",
+          filter: "contrast(1.1) brightness(1.05)",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
 
       <div className="relative z-10 container px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
         <motion.div

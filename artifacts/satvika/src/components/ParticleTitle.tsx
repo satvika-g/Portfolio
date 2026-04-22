@@ -21,8 +21,8 @@ type Props = {
 const SPRING = 0.05;
 const FRICTION = 0.82;
 const MOUSE_RADIUS = 110;
-const SAMPLE_STEP = 3;
-const MAX_PARTICLES = 2000;
+const SAMPLE_STEP = 2;
+const MAX_PARTICLES = 3500;
 
 export function ParticleTitle({
   text = "Hi, my name is Satvika",
@@ -67,7 +67,7 @@ export function ParticleTitle({
       ctx.clearRect(0, 0, width, cssHeight);
 
       const isSmall = width < 640;
-      const fontSize = isSmall ? 44 : width < 900 ? 60 : 80;
+      const fontSize = isSmall ? 64 : width < 900 ? 92 : 120;
 
       ctx.fillStyle = "#ffffff";
       ctx.textAlign = "center";
@@ -120,8 +120,8 @@ export function ParticleTitle({
               baseY,
               vx: 0,
               vy: 0,
-              size: 1 + Math.random(),
-              baseOpacity: 0.6 + Math.random() * 0.4,
+              size: 2 + Math.random() * 1.2,
+              baseOpacity: 0.85 + Math.random() * 0.15,
               opacity: 0,
               index: idx++,
             });
@@ -187,6 +187,12 @@ export function ParticleTitle({
 
       const mouse = mouseRef.current;
       const particles = particlesRef.current;
+      const cx = width / 2;
+      const cy = cssHeight / 2;
+      const maxDistFromCenter = Math.sqrt(cx * cx + cy * cy);
+
+      ctx.shadowBlur = 14;
+      ctx.shadowColor = "rgba(255, 255, 255, 0.8)";
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -218,15 +224,37 @@ export function ParticleTitle({
           p.opacity = Math.min(p.baseOpacity, p.opacity + 0.02);
         }
 
-        const renderSize = p.size + glow * 1.2;
-        const renderOpacity = Math.min(1, p.opacity + glow * 0.3);
+        const distFromCenter = Math.sqrt(
+          (p.baseX - cx) * (p.baseX - cx) +
+            (p.baseY - cy) * (p.baseY - cy),
+        );
+        const centerBoost = 1 - (distFromCenter / maxDistFromCenter) * 0.25;
+
+        const renderSize = p.size + glow * 1.4;
+        const renderOpacity = Math.min(
+          1,
+          p.opacity * centerBoost + glow * 0.3,
+        );
+
+        const grad = ctx.createRadialGradient(
+          p.x,
+          p.y,
+          0,
+          p.x,
+          p.y,
+          renderSize * 2,
+        );
+        grad.addColorStop(0, `rgba(255, 255, 255, ${renderOpacity})`);
+        grad.addColorStop(0.5, `rgba(255, 255, 255, ${renderOpacity * 0.6})`);
+        grad.addColorStop(1, "rgba(255, 255, 255, 0)");
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, renderSize, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${renderOpacity})`;
+        ctx.arc(p.x, p.y, renderSize * 2, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
         ctx.fill();
       }
 
+      ctx.shadowBlur = 0;
       rafRef.current = requestAnimationFrame(loop);
     };
     rafRef.current = requestAnimationFrame(loop);
