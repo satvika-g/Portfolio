@@ -1,0 +1,94 @@
+ParticleTitle.tsx — Interactive particle-based heading (MANDATORY BEHAVIOR)
+
+Renders the hero heading as particles assembled from canvas pixel sampling.
+
+TEXT:
+"Hi, my name is Satvika"
+
+Canvas:
+• height: 230px, width: 100%
+• font: italic 80px 'Instrument Serif'
+• centered, two lines if needed
+
+PARTICLE GENERATION:
+• Sample text pixels every 3px to generate particles
+• Each particle has:
+x, y (current position)
+baseX, baseY (target/original position)
+vx, vy (velocity)
+size ~1–2px
+opacity ~0.6–1
+
+INITIAL ANIMATION:
+• Particles spawn from off-canvas (top or bottom randomly)
+• Animate into position using spring motion
+
+HOVER INTERACTION (CRITICAL — MUST IMPLEMENT):
+
+Mouse interaction radius:
+~110px
+
+When cursor moves near particles:
+• Apply repulsion force away from cursor
+• Force strength increases as distance decreases
+• Movement must feel smooth and fluid
+
+Force logic:
+dx = particle.x - mouse.x
+dy = particle.y - mouse.y
+distance = sqrt(dx² + dy²)
+
+if (distance < radius):
+force = (radius - distance) / radius
+angle = atan2(dy, dx)
+particle.vx += cos(angle) * force * 10
+particle.vy += sin(angle) * force * 10
+
+RETURN TO SHAPE:
+
+• Particles must spring back to baseX/baseY
+• Use:
+SPRING ≈ 0.05
+FRICTION ≈ 0.82
+
+Each frame:
+particle.vx += (baseX - x) * SPRING
+particle.vy += (baseY - y) * SPRING
+particle.vx *= FRICTION
+particle.vy *= FRICTION
+x += vx
+y += vy
+
+IDLE MOTION:
+• Subtle breathing effect using sine:
+x += sin(time + index) * 0.2
+y += cos(time + index) * 0.2
+
+VISUAL EFFECT:
+• Particles near cursor glow brighter
+• Slight size increase near interaction
+• Opacity increases slightly on hover
+
+RENDERING:
+• Use requestAnimationFrame loop
+• Draw particles as small circles or soft radial dots
+
+PERFORMANCE:
+• Maintain smooth 60fps
+• Limit particles if needed (~1000–2000 max)
+
+IMPORTANT:
+This interaction is NOT optional.
+
+The text MUST:
+• hold shape when idle
+• softly disperse when cursor moves over it
+• reform smoothly when cursor leaves
+
+It should feel like:
+"the text dissolves into particles and reforms"
+
+DO NOT:
+• replace with CSS animation
+• remove particle system
+• simplify to static text

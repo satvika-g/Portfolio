@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { ParticleTitle } from "./ParticleTitle";
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -68,10 +69,8 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-6 md:space-y-8"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-sans font-light tracking-tight text-white leading-tight">
-            Hi, my name is{" "}
-            <span className="font-serif italic text-white/90">Satvika</span>
-          </h1>
+          <h1 className="sr-only">Hi, my name is Satvika</h1>
+          <ParticleTitle text="Hi, my name is Satvika" height={230} />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
