@@ -7,30 +7,19 @@ const skills = [
   "Web Development",
   "AI",
   "SQL",
+  "NLP",
+  "scikit-learn",
+  "Java",
+  "C",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Git",
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const pillVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
-  },
-};
-
 export function SkillsSection() {
+  const loop = [...skills, ...skills];
+
   return (
     <section
       id="skills"
@@ -62,30 +51,31 @@ export function SkillsSection() {
               build and explore.
             </span>
           </h2>
-
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
-            A toolkit shaped by curiosity — moving fluently between data,
-            models, and the products they live inside.
-          </p>
         </motion.div>
+      </div>
 
-        <motion.ul
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-3 md:gap-4"
+      <div className="relative z-10 mt-20 w-full overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
+
+        <motion.div
+          className="flex gap-4 md:gap-6 w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 35,
+            ease: "linear",
+            repeat: Infinity,
+          }}
         >
-          {skills.map((skill) => (
-            <motion.li
-              key={skill}
-              variants={pillVariants}
-              className="glass-card px-6 py-3 rounded-full text-sm md:text-base font-light text-white/90 tracking-wide hover:bg-white/[0.06] hover:scale-105 transition-all duration-500 cursor-default"
+          {loop.map((skill, i) => (
+            <div
+              key={`${skill}-${i}`}
+              className="glass-card px-6 py-3 rounded-full text-sm md:text-base font-light text-white/90 tracking-wide whitespace-nowrap"
             >
               {skill}
-            </motion.li>
+            </div>
           ))}
-        </motion.ul>
+        </motion.div>
       </div>
     </section>
   );

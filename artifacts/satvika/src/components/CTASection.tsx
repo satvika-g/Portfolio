@@ -32,13 +32,17 @@ export function CTASection() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/satvika-gudladona/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-black px-10 py-4 rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] w-full sm:w-auto"
             >
               Contact Me
             </a>
             <a
-              href="#"
+              href="/satvika-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-white/20 bg-black/20 backdrop-blur-sm text-white px-10 py-4 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
               View Resume

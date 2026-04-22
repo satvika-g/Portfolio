@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Activity, TrendingUp, ShieldAlert, Dna } from "lucide-react";
+import { Activity, TrendingUp, Code2, Dna } from "lucide-react";
 
 const projects = [
   {
@@ -13,9 +13,9 @@ const projects = [
     icon: TrendingUp
   },
   {
-    title: "Fraud Shipment Detection",
-    description: "Anomaly detection system using Isolation Forest with feature engineering and Flask-based deployment.",
-    icon: ShieldAlert
+    title: "Website Development",
+    description: "Designed and implemented a responsive front-end using HTML, CSS, and JavaScript.",
+    icon: Code2
   },
   {
     title: "Protein Family Classification",

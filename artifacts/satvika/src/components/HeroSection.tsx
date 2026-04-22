@@ -94,7 +94,9 @@ export function HeroSection() {
               View Projects
             </a>
             <a
-              href="#"
+              href="https://github.com/satvika-g"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-white/20 bg-black/20 backdrop-blur-sm text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
               View GitHub
