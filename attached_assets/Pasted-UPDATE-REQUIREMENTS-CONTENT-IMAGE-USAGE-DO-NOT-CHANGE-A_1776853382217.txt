@@ -1,0 +1,84 @@
+UPDATE REQUIREMENTS — CONTENT + IMAGE USAGE (DO NOT CHANGE ANY EXISTING ANIMATIONS OR STRUCTURE)
+
+---
+
+HERO SECTION (TEXT CHANGE ONLY):
+
+Replace the hero title text:
+"Building intelligent systems / that solve real problems"
+
+→
+"Hi, my name is Satvika"
+
+Keep particle text effect and all animations EXACTLY the same.
+
+---
+
+SECTION STRUCTURE CHANGE:
+
+REMOVE:
+HowItWorksSection (Approach section)
+
+REPLACE IT WITH:
+Projects section (placed in the same position in layout)
+
+Do NOT change spacing, animation system, or transitions.
+
+---
+
+PROJECTS SECTION (UPDATED USAGE):
+
+Use one of the ATTACHED IMAGES as the background for this section instead of generating or using existing placeholders.
+
+Background image:
+• Must be taken ONLY from the images provided by the user
+• Apply same styling (opacity, overlay, blur) as other sections
+
+Content:
+Keep the 4 project cards exactly as previously defined:
+• COVID-19 Prediction System
+• Stock Price Prediction using Sentiment
+• Fraud Shipment Detection
+• Protein Family Classification
+
+---
+
+SKILLS SECTION (NEW IMAGE USAGE):
+
+In the Skills section:
+
+• Use another ATTACHED IMAGE as the background
+• Do NOT generate or fetch any new image
+• Apply dark overlay for readability
+• Keep cinematic consistency with other sections
+
+Skills content:
+Python · Machine Learning · Data Science · Web Development · AI · SQL
+
+Display style:
+• floating pills OR glass cards (same design system)
+• no layout changes
+
+---
+
+IMAGE USAGE RULE (IMPORTANT):
+
+The AI MUST:
+• Use ALL attached images across sections (Hero already uses one)
+• Assign remaining images to:
+→ Projects section background
+→ Skills section background
+
+DO NOT:
+• reuse the same image everywhere
+• fetch stock images
+• generate new images
+
+---
+
+FINAL RESULT:
+
+• Hero text now introduces the person (Satvika)
+• Projects section replaces Approach section
+• Skills + Projects sections visually enriched using provided images
+• All animations, particles, WebGL, and cinematic effects remain unchanged

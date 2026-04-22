@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 
-const skills = [
-  "Python", "Machine Learning", "Data Science", "Web Development", "AI", "SQL",
-  "Python", "Machine Learning", "Data Science", "Web Development", "AI", "SQL"
-];
-
 export function IntroSection() {
   return (
-    <section id="skills" className="relative w-full py-32 bg-black overflow-hidden bg-noise">
+    <section id="about" className="relative w-full py-32 bg-black overflow-hidden bg-noise">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{ backgroundImage: "url('/intro-bg.jpg')" }}
@@ -36,22 +31,6 @@ export function IntroSection() {
           </p>
         </motion.div>
 
-        {/* Marquee Row */}
-        <div className="w-full overflow-hidden mt-24 relative">
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 20, ease: "linear", repeat: Infinity }}
-            className="flex whitespace-nowrap gap-12 items-center"
-          >
-            {skills.map((skill, index) => (
-              <span key={index} className="text-2xl md:text-3xl font-serif italic text-white/40 px-6">
-                {skill}
-                <span className="mx-12 text-white/20 font-sans not-italic text-sm align-middle">·</span>
-              </span>
-            ))}
-          </motion.div>
-        </div>
       </div>
     </section>
   );

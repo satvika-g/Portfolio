@@ -6,7 +6,7 @@ import { PageLoader } from "@/components/PageLoader";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { IntroSection } from "@/components/IntroSection";
-import { HowItWorksSection } from "@/components/HowItWorksSection";
+import { SkillsSection } from "@/components/SkillsSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -23,7 +23,7 @@ function App() {
           <main>
             <HeroSection />
             <IntroSection />
-            <HowItWorksSection />
+            <SkillsSection />
             <FeaturesSection />
             <CTASection />
           </main>
