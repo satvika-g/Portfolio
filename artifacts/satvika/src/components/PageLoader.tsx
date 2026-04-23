@@ -27,7 +27,7 @@ export function PageLoader() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl md:text-6xl font-serif italic text-white tracking-wider"
           >
-            Satvika
+            Satvika Gudladona
           </motion.h1>
         </motion.div>
       )}

@@ -27,7 +27,7 @@ export function IntroSection() {
           </h2>
 
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
-            I work on machine learning models, data-driven applications, and full-stack systems that solve real-world problems. From prediction systems to anomaly detection, I focus on building things that actually work outside the classroom.
+            I am an undergraduate student from Hyderabad, where I explore the intersection of technology and real-world applications.<br></br> I work on machine learning models, data-driven applications, and full-stack systems that solve real-world problems.
           </p>
         </motion.div>
 
