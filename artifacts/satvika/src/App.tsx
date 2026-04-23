@@ -1,38 +1,21 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Navbar } from "./components/Navbar.tsx";
+import { HeroSection } from "./components/HeroSection.tsx";
+import { IntroSection } from "./components/IntroSection.tsx";
+import { SkillsSection } from "./components/SkillsSection.tsx";
+import { FeaturesSection } from "./components/FeaturesSection.tsx";
+import { CTASection } from "./components/CTASection.tsx";
+import { Footer } from "./components/Footer.tsx";
 
-import { PageLoader } from "@/components/PageLoader";
-import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { IntroSection } from "@/components/IntroSection";
-import { SkillsSection } from "@/components/SkillsSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
-
-const queryClient = new QueryClient();
-
-function App() {
+export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="bg-black min-h-screen font-sans selection:bg-white selection:text-black">
-          <PageLoader />
-          <Navbar />
-          <main>
-            <HeroSection />
-            <IntroSection />
-            <SkillsSection />
-            <FeaturesSection />
-            <CTASection />
-          </main>
-          <Footer />
-        </div>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <>
+      <Navbar />
+      <HeroSection />
+      <IntroSection />
+      <SkillsSection />
+      <FeaturesSection />
+      <CTASection />
+      <Footer />
+    </>
   );
 }
-
-export default App;
