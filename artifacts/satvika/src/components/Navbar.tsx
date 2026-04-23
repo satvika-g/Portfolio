@@ -14,7 +14,7 @@ export function Navbar() {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          {["Projects", "Skills", "Contact"].map((item) => (
+          {["Skills", "Projects", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
